@@ -12,14 +12,14 @@ Before using Terraform to provision AWS infrastructure, you must set up an IAM u
 2. Create **Access Key ID** and **Secret Access Key** and save them in secured place
 3. Install and Configure AWS CLI with a profile `aws configure --profile terraform-user`
 4. Manually create the **S3 bucket** and update these details in `backend.tf` file 
-5. create a file `terraform.tfvars` in the Project root directory
+5. create a file `terraform.tfvars` in the Project root directory and update them based your preference
 #### Update Variables on terraform.tfvars
 ```shell
 region                  = "YOUR_REGION"
 iam_profile             = "terraform-user"
-cidr_block              = ""
-public_subnet_count     = ""
-private_subnet_count    = ""
+cidr_block              = "10.0.0.0/16"
+public_subnet_count     = "1"
+private_subnet_count    = "1"
 ```
 
 ### Initiate Terraform
@@ -28,4 +28,5 @@ export AWS_PROFILE=terraform-user
 terraform init
 terraform plan
 terraform apply
+terraform destroy
 ```
