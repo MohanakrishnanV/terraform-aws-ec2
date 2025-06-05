@@ -17,11 +17,13 @@ Before using Terraform to provision AWS infrastructure, you must set up an IAM u
 ```shell
 region              = "YOUR_REGION"
 iam_profile         = "terraform-user"
-
+cidr_block          = "" 
 ```
 
 ### Initiate Terraform
 ```shell
 export AWS_PROFILE=terraform-user
 terraform init
+terraform plan
+terraform apply
 ```
