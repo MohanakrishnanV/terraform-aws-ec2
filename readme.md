@@ -15,9 +15,11 @@ Before using Terraform to provision AWS infrastructure, you must set up an IAM u
 5. create a file `terraform.tfvars` in the Project root directory
 #### Update Variables on terraform.tfvars
 ```shell
-region              = "YOUR_REGION"
-iam_profile         = "terraform-user"
-cidr_block          = "" 
+region                  = "YOUR_REGION"
+iam_profile             = "terraform-user"
+cidr_block              = ""
+public_subnet_count     = ""
+private_subnet_count    = ""
 ```
 
 ### Initiate Terraform
