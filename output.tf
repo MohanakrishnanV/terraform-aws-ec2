@@ -2,10 +2,11 @@ output "vpc_id" {
   value = module.vpc.vpc_id
 }
 
-output "public_subnets" {
-  value = module.vpc.public_subnets
+output "public_subnet_ids" {
+  value = module.vpc.public_subnet_ids
 }
 
-output "webserver_dns" {
-  value = aws_lb.webserver_lb.dns_name
+output "webserver_lb_dns" {
+  value = module.webserver.webserver_lb_dns
 }
+
