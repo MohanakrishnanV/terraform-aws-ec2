@@ -1,8 +1,8 @@
 resource "aws_launch_template" "webserver" {
-  name_prefix   = var.webserver_launch_template_name
-  image_id      = data.aws_ami.ubuntu.image_id
-  instance_type = var.webserver_ec2_instance_type
-  user_data     = base64encode(file("${path.module}/user-data.sh"))
+  name_prefix            = var.webserver_launch_template_name
+  image_id               = data.aws_ami.ubuntu.image_id
+  instance_type          = var.webserver_ec2_instance_type
+  user_data              = base64encode(file("${path.module}/user-data.sh"))
   vpc_security_group_ids = [aws_security_group.webserver_lb_sg.id]
   lifecycle {
     create_before_destroy = true
@@ -20,7 +20,7 @@ resource "aws_autoscaling_group" "webserver_asg" {
   target_group_arns         = [aws_lb_target_group.webserver_tg.arn]
   health_check_type         = "EC2"
   health_check_grace_period = 300
-  depends_on = [ aws_lb_listener.webserver_listener ]
+  depends_on                = [aws_lb_listener.webserver_listener]
 }
 
 resource "aws_lb" "webserver_lb" {
