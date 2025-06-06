@@ -17,5 +17,4 @@ module "webserver" {
   vpc_id                         = module.vpc.vpc_id
   webserver_tg_name              = var.webserver_tg_name
   websever_lb_sg_name            = var.websever_lb_sg_name
-
 }

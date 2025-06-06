@@ -28,7 +28,9 @@ webserver_ec2_instance_type     = "t2.micro"
 webserver_asg_desired_capacity  = "1"
 webserver_asg_max_size          = "1"
 webserver_asg_min_size          = "1"
-
+app_port                        = "80"
+webserver_tg_name               = "webserver-target-group"
+websever_lb_sg_name             = "websever-lb-security-group"
 ```
 
 ### To Initiate Terraform
