@@ -4,6 +4,7 @@ resource "aws_launch_template" "webserver" {
   instance_type          = var.webserver_ec2_instance_type
   user_data              = base64encode(file("${path.module}/user-data.sh"))
   vpc_security_group_ids = [aws_security_group.webserver_lb_sg.id]
+  update_default_version = true
   lifecycle {
     create_before_destroy = true
   }
@@ -16,6 +17,7 @@ resource "aws_autoscaling_group" "webserver_asg" {
   vpc_zone_identifier = var.public_subnet_ids
   launch_template {
     id = aws_launch_template.webserver.id
+    version = aws_launch_template.webserver.latest_version
   }
   target_group_arns         = [aws_lb_target_group.webserver_tg.arn]
   health_check_type         = "EC2"

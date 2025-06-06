@@ -7,6 +7,5 @@ output "public_subnet_ids" {
 }
 
 output "webserver_lb_dns" {
-  value = module.webserver.webserver_lb_dns
+  value = "http://${module.webserver.webserver_lb_dns}"
 }
-
